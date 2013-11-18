@@ -4,8 +4,13 @@
 		<h1>Making life simple + fun!</h1>
 		<h2>Pinteresting lets you manage all social plans from one convenient location. </h2>
 		<h2> So, you spend less time planning and more time with your friends.</h2>
-		<p>&nbsp</p>
-		<p>Not a member yet? <%= link_to "Sign up" , "#", class: "btn btn-primary btn-lg" %> </p>
-		<p>Already a member? <%= link_to "Log in" , "#", class: "btn btn-default btn-lg" %></p>
+		<% if user_signed_in? %>
+			<p>&nbsp</p>
+			<p> You are all set! </p>
+		<% else %>
+			<p>&nbsp</p>
+			<p>Not a member yet? <%= link_to "Sign up" , new_user_registration_path, class: "btn btn-primary btn-lg" %> </p>
+			<p>Already a member? <%= link_to "Log in" , new_user_session_path, class: "btn btn-default btn-lg" %></p>
+		<% end %>
 	</div>
 </div>
